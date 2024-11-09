@@ -1,0 +1,14 @@
+local plr = game:GetService("Players").LocalPlayer
+local char = plr.Character
+for i = 1, 400 do
+    if char:FindFirstChild("Crab Cage") then
+        char["Crab Cage"].Deploy:FireServer{{
+            CFrame = char.HumanoidRootPart.CFrame
+        }}
+    elseif plr.Backpack:FindFirstChild("Crab Cage") then
+        char.Humanoid:EquipTool(plr.Backpack["Crab Cage"])
+    else
+        break
+    end
+    task.wait(0.05)
+end
